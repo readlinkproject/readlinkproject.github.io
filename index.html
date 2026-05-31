@@ -3,319 +3,585 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>McLean High Rocketry Club | MHS Rocketry</title>
+    <title>ReadLink Project | Free Literacy & Education</title>
+    <!-- Friendly, rounded font to match the logo text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Brighter, High-Contrast Color Palette */
-        :root {
-            --space-blue: #0B1D3A;
-            --rocket-red: #D62229;
-            --school-gray: #8A95A5;
-            --bg-main: #EBF0F5;       /* Bright, crisp light gray for main body */
-            --bg-card: #FFFFFF;       /* Clean white for content blocks to stand out */
-            --bg-alt: #F5F7FA;        /* Subtle secondary light gray for alternating sections */
-            --white: #FFFFFF;
-        }
-
-        /* General Reset */
+        /* CSS RESET & VARIABLES */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-creme: #FAF6F0;       /* Exact background from logo */
+            --card-creme: #F2ECE1;     /* Slightly darker creme for contrast */
+            --text-dark: #2B2D2F;      /* Logo font color */
+            
+            /* Logo Book Colors */
+            --logo-coral: #F26A36;
+            --logo-blue: #4FA9D2;
+            --logo-teal: #10B981;
+            --logo-yellow: #FFD151;
+            --logo-lavender: #B194D3;
+            --logo-pink: #FDA4AF;
         }
 
         body {
-            background-color: var(--bg-main);
-            color: var(--space-blue);
+            background-color: var(--bg-creme);
+            color: var(--text-dark);
+            font-family: 'Quicksand', sans-serif;
             line-height: 1.6;
         }
 
-        /* Navigation Bar */
+        h1, h2, h3, .logo-text {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+        }
+
+        /* NAVIGATION */
         header {
-            background-color: var(--white);
-            padding: 0.8rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--rocket-red);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1.5rem 10%;
+            background-color: rgba(250, 246, 240, 0.85);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--card-creme);
         }
 
-        .logo-container {
+        .brand-link {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-dark);
         }
 
-        /* Styling for your custom transparent logo */
-        .club-logo {
-            height: 55px;
+        .nav-logo-img {
+            height: 45px;
             width: auto;
-            object-fit: contain;
-            display: block;
+            border-radius: 6px;
         }
 
-        header h1 {
-            color: var(--space-blue);
-            font-size: 1.5rem;
+        .logo-text {
+            font-size: 1.8rem;
+        }
+
+        .logo-text span {
+            color: var(--logo-coral);
         }
 
         nav a {
-            color: var(--space-blue);
+            margin-left: 1.5rem;
             text-decoration: none;
-            margin-left: 20px;
-            font-weight: 600;
-            transition: color 0.3s;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: color 0.2s;
         }
 
         nav a:hover {
-            color: var(--rocket-red);
+            color: var(--logo-blue);
         }
 
-        /* Hero / Homepage Section */
-        #home {
-            background: linear-gradient(135deg, #F5F7FA 0%, var(--bg-main) 100%);
-            color: var(--space-blue);
-            padding: 100px 5% 80px 5%;
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 7rem 10% 6rem 10%;
+            background: radial-gradient(circle at top right, rgba(255,209,81,0.15), transparent 45%),
+                        radial-gradient(circle at bottom left, rgba(79,169,210,0.15), transparent 45%);
         }
 
-        #home h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--space-blue);
+        .hero-logo {
+            max-width: 220px;
+            height: auto;
+            margin-bottom: 1.5rem;
         }
 
-        #home p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-            color: #4A5568;
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 850px;
         }
 
-        .cta-button {
+        .hero h1 span {
+            color: var(--logo-coral);
+            border-bottom: 4px dashed var(--logo-yellow);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+            color: #4A4D50;
+            font-weight: 600;
+        }
+
+        .btn {
             display: inline-block;
-            background-color: var(--rocket-red);
-            color: var(--white);
-            padding: 12px 30px;
+            padding: 0.9rem 2.2rem;
+            background-color: var(--logo-coral);
+            color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: background-color 0.3s, transform 0.2s;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 0px #c24e20;
+            transition: transform 0.1s, box-shadow 0.1s;
         }
 
-        .cta-button:hover {
-            background-color: #B01B20;
-            transform: translateY(-1px);
+        .btn:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0px #c24e20;
         }
 
-        /* Section Global Layout */
+        /* SECTION LAYOUT */
         section {
-            padding: 80px 10%;
+            padding: 6rem 10%;
         }
 
         section h2 {
-            font-size: 2.2rem;
-            color: var(--space-blue);
-            margin-bottom: 40px;
-            position: relative;
-            padding-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
         }
 
-        section h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--rocket-red);
-        }
-
-        /* Join Us Section */
-        #join {
-            background-color: var(--bg-alt);
-        }
-
-        .info-card {
-            background-color: var(--white);
-            border-left: 5px solid var(--rocket-red);
-            padding: 25px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-
-        .info-card ul {
-            list-style-type: none;
-            margin-top: 15px;
-        }
-
-        .info-card li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        /* Our Journey Timeline */
-        #journey {
-            background-color: var(--bg-main);
-        }
-
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .timeline-item {
-            background-color: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.04);
-            border-top: 4px solid var(--school-gray);
-        }
-
-        .timeline-item.highlight {
-            border-top: 4px solid var(--rocket-red);
-            background-color: #FFFDFD;
-        }
-
-        .date {
-            font-weight: bold;
-            color: var(--rocket-red);
-            font-size: 1.1rem;
-        }
-
-        /* TARC Section */
-        #tarc {
-            background-color: var(--bg-alt);
-        }
-
-        .grid {
+        /* ABOUT US */
+        .about-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
             align-items: center;
         }
 
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            color: #3D4043;
         }
 
-        /* Support Us Section */
-        #support {
-            background-color: var(--bg-main);
+        .quote-block {
+            border-left: 4px solid var(--logo-coral);
+            padding-left: 1.5rem;
+            font-style: italic;
+            background-color: rgba(242, 106, 54, 0.05);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .about-visual {
+            background-color: var(--card-creme);
+            padding: 2.5rem;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 3px dashed var(--logo-blue);
             text-align: center;
         }
 
-        .support-container {
-            max-width: 700px;
-            margin: 0 auto;
+        /* WHAT WE OFFER & GENERAL GRID ELEMENTS */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--space-blue);
-            color: var(--white);
+        .card {
+            background-color: var(--card-creme);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 2px solid rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1.05rem;
+            color: #3D4043;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 12px;
+        }
+
+        .card:nth-child(1)::before { background-color: var(--logo-coral); }
+        .card:nth-child(2)::before { background-color: var(--logo-blue); }
+        .card:nth-child(3)::before { background-color: var(--logo-teal); }
+
+        /* UPCOMING EVENTS (TIMELINE CARDS) */
+        .events-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 3rem auto 0 auto;
+        }
+
+        .event-card {
+            background-color: var(--card-creme);
+            display: flex;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            gap: 2rem;
+            border-left: 8px solid var(--logo-blue);
+        }
+
+        .event-card:nth-child(even) {
+            border-left-color: var(--logo-yellow);
+        }
+
+        .event-date {
             text-align: center;
-            padding: 25px;
+            min-width: 90px;
+        }
+
+        .event-date .day {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8rem;
+            color: var(--logo-coral);
+            display: block;
+            line-height: 1;
+        }
+
+        .event-date .month {
+            font-weight: 700;
             font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-dark);
+        }
+
+        .event-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .event-details p {
+            color: #515457;
+            font-size: 1rem;
+        }
+
+        /* OUR TEAM */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            max-width: 900px;
+            margin: 3rem auto 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .avatar-placeholder {
+            width: 140px;
+            height: 140px;
+            background-color: var(--card-creme);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            border: 4px solid var(--logo-lavender);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .team-member:nth-child(2) .avatar-placeholder { border-color: var(--logo-teal); }
+        .team-member:nth-child(3) .avatar-placeholder { border-color: var(--logo-coral); }
+
+        .team-member h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .team-member .role {
+            font-weight: 700;
+            color: var(--logo-coral);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            font-size: 0.95rem;
+            color: #515457;
+            padding: 0 1rem;
+        }
+
+        /* CONTACT FORM */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-creme);
+            padding: 3rem;
+            border-radius: 28px;
+            border: 2px solid rgba(0,0,0,0.02);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid transparent;
+            background-color: var(--bg-creme);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Quicksand', sans-serif;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--logo-blue);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--text-dark);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Fredoka', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--logo-teal);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background-color: var(--card-creme);
+            font-size: 1rem;
+            color: #616467;
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 5%; }
+            nav a { margin: 0 0.5rem; font-size: 0.95rem; }
+            .hero h1 { font-size: 2.4rem; }
+            .about-container { grid-template-columns: 1fr; gap: 2.5rem; }
+            .event-card { flex-direction: column; text-align: center; padding: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navigation -->
+    <!-- NAVBAR -->
     <header>
-        <div class="logo-container">
-            <img src="MHSRocketry_Clearbg_Logo.png" alt="McLean High Rocketry Club Logo" class="club-logo">
-            <h1>MHS Rocketry</h1>
-        </div>
+        <a href="#" class="brand-link">
+            <img src="ReadLink (1).png" alt="ReadLink Logo" class="nav-logo-img" onerror="this.style.display='none'">
+            <div class="logo-text">Read<span>Link</span></div>
+        </a>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#join">Join Us</a>
-            <a href="#journey">Our Journey</a>
-            <a href="#tarc">TARC</a>
-            <a href="#support">Support</a>
+            <a href="#about">Our Story</a>
+            <a href="#aims">What We Do</a>
+            <a href="#events">Events</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact Us</a>
         </nav>
     </header>
 
-    <!-- Homepage / Hero Section -->
-    <section id="home">
-        <h2>McLean High Rocketry Club</h2>
-        <p>Designing, building, and launching the future of aerospace engineering. Welcome to the official home of McLean High School's rocketry team.</p>
-        <a href="#join" class="cta-button">Join Our Next Launch</a>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <img src="ReadLink (1).png" alt="ReadLink Project Logo" class="hero-logo" onerror="this.style.display='none'">
+        <h1>Connecting Communities Through the <span>Joy of Reading</span></h1>
+        <p>Providing free literacy education, mentorship, and learning opportunities for underrepresented communities and children.</p>
+        <a href="#contact" class="btn">Get Involved</a>
     </section>
 
-    <!-- Join Us Section -->
-    <section id="join">
-        <h2>Join Us</h2>
-        <p>Whether you want to build rockets, code flight simulations, or manage team logistics, there is a place for you here. No prior experience required!</p>
-        <div class="info-card">
-            <h3>Meeting Details</h3>
-            <ul>
-                <li><strong>When:</strong> Every Friday after school</li>
-                <li><strong>Where:</strong> Room Y228 (Mr. Jones's room)</li>
-                <li><strong>Who:</strong> Open to all McLean High students</li>
-            </ul>
-        </div>
-    </section>
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2 style="text-align: left; color: var(--logo-coral);">Our Story & Goals</h2>
+                <p>Every child deserves the chance to discover the worlds hidden inside books. However, barriers to literacy still impact countless neighborhoods, leaving brilliant children behind before they even get a fair start.</p>
+                
+                <div class="quote-block">
+                    <p><strong>A Note From Our Founder:</strong> "While volunteering at an elementary school robotics class, we handed out name tags to get to know the children. When I showed one student their tag to double-check their name, they looked up at me and softly said, <em>'I can't read.'</em></p>
+                    <p style="margin-top: 0.5rem;">I was deeply shocked that a child thriving in a hands-on STEM setting couldn't read their own name. Literacy is a crucial foundation for all learning and life. That moment made it clear that I couldn't just stand by. I had to step up and build a solution."</p>
+                </div>
 
-    <!-- Our Journey Section -->
-    <section id="journey">
-        <h2>Our Journey</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <span class="date">2024 - 2025 School Year</span>
-                <h3>Club Founded</h3>
-                <p>MHS Rocketry was officially established, bringing together students passionate about aerospace engineering and high-powered rocketry.</p>
+                <p>That is how ReadLink Project was born. Our core goal is to close the resource gap, empowering young readers by fostering a supportive culture where basic education is accessible, interactive, and entirely free.</p>
             </div>
-            <div class="timeline-item">
-                <span class="date">2025</span>
-                <h3>First Steps in TARC</h3>
-                <p>Entered our very first year in the American Rocketry Challenge, navigating the complexities of rocket design, safety guidelines, and flight simulation.</p>
-            </div>
-            <div class="timeline-item highlight">
-                <span class="date">March 29th</span>
-                <h3>The Most Successful Launch!</h3>
-                <p>Achieved the defining milestone of our launch window. Our rocket reached <strong>exactly 750 feet</strong>—hitting the precise target altitude required for the TARC qualification runs!</p>
+            <div class="about-visual">
+                <h3 style="color: var(--logo-blue); margin-bottom: 1rem;">Our Core Mission</h3>
+                <p style="font-weight: 600; font-size: 1.15rem; color: #4A4D50;">To construct accessible links between compassionate mentors and bright young minds, ensuring no child is left in the dark.</p>
             </div>
         </div>
     </section>
 
-    <!-- TARC Section -->
-    <section id="tarc">
-        <h2>The American Rocketry Challenge (TARC)</h2>
-        <div class="grid">
-            <div>
-                <p>The American Rocketry Challenge is the world's largest rocket contest for middle and high school students. It tasks teams with designing, building, and flying model rockets that meet incredibly precise altitude and flight duration parameters.</p>
+    <!-- WHAT WE OFFER -->
+    <section id="aims" style="background-color: rgba(242, 236, 225, 0.3);">
+        <h2>What We Aim To Do</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Accessible Classrooms</h3>
+                <p>Providing free reading workshops, structured lessons, and tailored academic support to children in underserved areas.</p>
             </div>
-            <div class="info-card" style="border-left-color: var(--school-gray);">
-                <h3>Our Achievements</h3>
-                <p>The 2025–2026 school year marked our official competitive debut in TARC. As a growing program, our team successfully managed complex structural engineering metrics, dynamic flight stability modeling, and practical field telemetry tracking to compete at a high level.</p>
+            <div class="card">
+                <h3>Literacy Resources</h3>
+                <p>Distributing books and learning materials straight into communities, ensuring no child goes without a story to read.</p>
+            </div>
+            <div class="card">
+                <h3>Empowering Opportunities</h3>
+                <p>Creating bright pipelines for mentorship, continuous learning, and community engagement to help kids thrive inside and outside school.</p>
             </div>
         </div>
     </section>
 
-    <!-- Support Us Section -->
-    <section id="support">
-        <div class="support-container">
-            <h2>Support Us</h2>
-            <p style="margin-bottom: 25px; color: #4A5568;">Our ambitious engineering goals, materials, and competition travel costs are made possible through corporate sponsorships and community fundraising. Help us inspire the next generation of aerospace engineers.</p>
-            <a href="mailto:mcleanhighrocketryclub@gmail.com" class="cta-button">Become a Sponsor / Donate</a>
+    <!-- UPCOMING EVENTS SECTION -->
+    <section id="events">
+        <h2>Upcoming Events</h2>
+        <p style="text-align: center; max-width: 600px; margin: -1rem auto 2rem auto; color: #515457; font-weight: 600;">
+            Join us at our upcoming community reading workshops and distribution drives!
+        </p>
+        
+        <div class="events-container">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="day">15</span>
+                    <span class="month">July</span>
+                </div>
+                <div class="event-details">
+                    <h3>Summer Community Book Drive</h3>
+                    <p><strong>Time:</strong> 10:00 AM - 2:00 PM | <strong>Location:</strong> Local Community Center</p>
+                    <p>Come grab free books for all elementary school age groups! We'll have reading spaces and creative storytelling tables set up.</p>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="day">02</span>
+                    <span class="month">Aug</span>
+                </div>
+                <div class="event-details">
+                    <h3>Interactive Reading & Phonics Lab</h3>
+                    <p><strong>Time:</strong> 1:00 PM - 3:00 PM | <strong>Location:</strong> Public Library Room B</p>
+                    <p>A fun, hands-on workshop pairing young learners with passionate student mentors to build foundational literacy skills through games.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- OUR TEAM SECTION -->
+    <section id="team" style="background-color: rgba(242, 236, 225, 0.3);">
+        <h2>Our Team</h2>
+        <p style="text-align: center; max-width: 500px; margin: -1rem auto 2rem auto; color: #515457; font-weight: 600;">
+            The passionate minds pulling together to make literacy accessible.
+        </p>
+        
+        <div class="team-grid">
+            <!-- Founder Profile -->
+            <div class="team-member">
+                <div class="avatar-placeholder">
+                    <!-- Tip: You can replace this text with an image link later, like <img src="founder.jpg"> -->
+                    📖
+                </div>
+                <h3>Eunice Sim</h3>
+                <div class="role">Founder & Executive Director</div>
+                <p>Dedicated to bridging technical mentorship and fundamental literacy skills for children in underrepresented communities.</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <div class="avatar-placeholder">
+                    🎨
+                </div>
+                <h3>Ina Dufault </h3>
+                <div class="role">Creative Director</div>
+                <p>Oversees design, visual resource building, and helping turn educational lessons into vibrant, interactive assets.</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <div class="avatar-placeholder">
+                    🤝
+                </div>
+                <h3>Team Member 3</h3>
+                <div class="role">Outreach Coordinator</div>
+                <p>Coordinates with elementary schools and community centers to safely distribute books and set up free learning clinics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT US -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p style="text-align: center; max-width: 500px; margin: -1rem auto 3rem auto; color: #515457; font-weight: 600;">
+            Want to collaborate, volunteer, or bring ReadLink to your neighborhood? Let’s connect!
+        </p>
+        <div class="contact-container">
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for reaching out to the ReadLink Project!');">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required placeholder="Tell us how you'd like to get involved!"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 McLean High Rocketry Club. All rights reserved.</p>
+        <p>&copy; 2026 ReadLink Project. Shifting the future, one page at a time.</p>
     </footer>
 
 </body>
