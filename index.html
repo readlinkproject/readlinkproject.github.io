@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McLean High Rocketry Club | MHS Rocketry</title>
+    <style>
+        /* Brighter, High-Contrast Color Palette */
+        :root {
+            --space-blue: #0B1D3A;
+            --rocket-red: #D62229;
+            --school-gray: #8A95A5;
+            --bg-main: #EBF0F5;       /* Bright, crisp light gray for main body */
+            --bg-card: #FFFFFF;       /* Clean white for content blocks to stand out */
+            --bg-alt: #F5F7FA;        /* Subtle secondary light gray for alternating sections */
+            --white: #FFFFFF;
+        }
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--space-blue);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--white);
+            padding: 0.8rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--rocket-red);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Styling for your custom transparent logo */
+        .club-logo {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        header h1 {
+            color: var(--space-blue);
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            color: var(--space-blue);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--rocket-red);
+        }
+
+        /* Hero / Homepage Section */
+        #home {
+            background: linear-gradient(135deg, #F5F7FA 0%, var(--bg-main) 100%);
+            color: var(--space-blue);
+            padding: 100px 5% 80px 5%;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        #home h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--space-blue);
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: #4A5568;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--rocket-red);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #B01B20;
+            transform: translateY(-1px);
+        }
+
+        /* Section Global Layout */
+        section {
+            padding: 80px 10%;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            color: var(--space-blue);
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--rocket-red);
+        }
+
+        /* Join Us Section */
+        #join {
+            background-color: var(--bg-alt);
+        }
+
+        .info-card {
+            background-color: var(--white);
+            border-left: 5px solid var(--rocket-red);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .info-card ul {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+
+        .info-card li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Our Journey Timeline */
+        #journey {
+            background-color: var(--bg-main);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .timeline-item {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+            border-top: 4px solid var(--school-gray);
+        }
+
+        .timeline-item.highlight {
+            border-top: 4px solid var(--rocket-red);
+            background-color: #FFFDFD;
+        }
+
+        .date {
+            font-weight: bold;
+            color: var(--rocket-red);
+            font-size: 1.1rem;
+        }
+
+        /* TARC Section */
+        #tarc {
+            background-color: var(--bg-alt);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        /* Support Us Section */
+        #support {
+            background-color: var(--bg-main);
+            text-align: center;
+        }
+
+        .support-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--space-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo-container">
+            <img src="MHSRocketry_Clearbg_Logo.png" alt="McLean High Rocketry Club Logo" class="club-logo">
+            <h1>MHS Rocketry</h1>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#join">Join Us</a>
+            <a href="#journey">Our Journey</a>
+            <a href="#tarc">TARC</a>
+            <a href="#support">Support</a>
+        </nav>
+    </header>
+
+    <!-- Homepage / Hero Section -->
+    <section id="home">
+        <h2>McLean High Rocketry Club</h2>
+        <p>Designing, building, and launching the future of aerospace engineering. Welcome to the official home of McLean High School's rocketry team.</p>
+        <a href="#join" class="cta-button">Join Our Next Launch</a>
+    </section>
+
+    <!-- Join Us Section -->
+    <section id="join">
+        <h2>Join Us</h2>
+        <p>Whether you want to build rockets, code flight simulations, or manage team logistics, there is a place for you here. No prior experience required!</p>
+        <div class="info-card">
+            <h3>Meeting Details</h3>
+            <ul>
+                <li><strong>When:</strong> Every Friday after school</li>
+                <li><strong>Where:</strong> Room Y228 (Mr. Jones's room)</li>
+                <li><strong>Who:</strong> Open to all McLean High students</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Our Journey Section -->
+    <section id="journey">
+        <h2>Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="date">2024 - 2025 School Year</span>
+                <h3>Club Founded</h3>
+                <p>MHS Rocketry was officially established, bringing together students passionate about aerospace engineering and high-powered rocketry.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="date">2025</span>
+                <h3>First Steps in TARC</h3>
+                <p>Entered our very first year in the American Rocketry Challenge, navigating the complexities of rocket design, safety guidelines, and flight simulation.</p>
+            </div>
+            <div class="timeline-item highlight">
+                <span class="date">March 29th</span>
+                <h3>The Most Successful Launch!</h3>
+                <p>Achieved the defining milestone of our launch window. Our rocket reached <strong>exactly 750 feet</strong>—hitting the precise target altitude required for the TARC qualification runs!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARC Section -->
+    <section id="tarc">
+        <h2>The American Rocketry Challenge (TARC)</h2>
+        <div class="grid">
+            <div>
+                <p>The American Rocketry Challenge is the world's largest rocket contest for middle and high school students. It tasks teams with designing, building, and flying model rockets that meet incredibly precise altitude and flight duration parameters.</p>
+            </div>
+            <div class="info-card" style="border-left-color: var(--school-gray);">
+                <h3>Our Achievements</h3>
+                <p>The 2025–2026 school year marked our official competitive debut in TARC. As a growing program, our team successfully managed complex structural engineering metrics, dynamic flight stability modeling, and practical field telemetry tracking to compete at a high level.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Us Section -->
+    <section id="support">
+        <div class="support-container">
+            <h2>Support Us</h2>
+            <p style="margin-bottom: 25px; color: #4A5568;">Our ambitious engineering goals, materials, and competition travel costs are made possible through corporate sponsorships and community fundraising. Help us inspire the next generation of aerospace engineers.</p>
+            <a href="mailto:mcleanhighrocketryclub@gmail.com" class="cta-button">Become a Sponsor / Donate</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 McLean High Rocketry Club. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
