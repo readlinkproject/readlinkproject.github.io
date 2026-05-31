@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
+        /* CSS RESET & VARIABLES */
         * {
             margin: 0;
             padding: 0;
@@ -16,9 +19,9 @@
         }
 
         :root {
-            --bg-creme: #FAF6F0;       /* Exact background from logo */
-            --card-creme: #F2ECE1;     /* Slightly darker creme for contrast */
-            --text-dark: #2B2D2F;      /* Logo font color */
+            --bg-creme: #FAF6F0;       
+            --card-creme: #F2ECE1;     
+            --text-dark: #2B2D2F;     
             
             /* Logo Book Colors */
             --logo-coral: #F26A36;
@@ -336,6 +339,57 @@
             padding: 0 1rem;
         }
 
+        /* NEW: SUPPORT US BLOCK STYLES */
+        .support-container {
+            max-width: 850px;
+            margin: 3rem auto 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .support-box {
+            background-color: var(--card-creme);
+            padding: 2.5rem;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            border: 2px solid rgba(0,0,0,0.02);
+        }
+
+        .support-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--logo-coral);
+        }
+
+        .support-box:nth-child(2) h3 {
+            color: var(--logo-blue);
+        }
+
+        .support-box p {
+            font-size: 1.05rem;
+            color: #3D4043;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .email-link {
+            color: var(--text-dark);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: var(--logo-teal);
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+
+        .email-link:hover {
+            color: var(--logo-teal);
+        }
+
         /* CONTACT FORM */
         .contact-container {
             max-width: 600px;
@@ -390,29 +444,45 @@
             background-color: var(--logo-teal);
         }
 
-        /* FOOTER */
+        /* FOOTER & SOCIALS */
         footer {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             background-color: var(--card-creme);
             font-size: 1rem;
             color: #616467;
             font-weight: 600;
         }
 
+        .social-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .instagram-icon {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            transition: transform 0.2s, color 0.2s;
+            display: inline-block;
+        }
+
+        .instagram-icon:hover {
+            color: #E1306C; /* Official Instagram Pink-Red branding */
+            transform: scale(1.15);
+        }
+
         /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 5%; }
-            nav a { margin: 0 0.5rem; font-size: 0.95rem; }
+            nav a { margin: 0 0.3rem; font-size: 0.9rem; }
             .hero h1 { font-size: 2.4rem; }
             .about-container { grid-template-columns: 1fr; gap: 2.5rem; }
             .event-card { flex-direction: column; text-align: center; padding: 2rem; }
+            .support-container { grid-template-columns: 1fr; gap: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header>
         <a href="#" class="brand-link">
             <img src="ReadLink (1).png" alt="ReadLink Logo" class="nav-logo-img" onerror="this.style.display='none'">
@@ -423,11 +493,11 @@
             <a href="#aims">What We Do</a>
             <a href="#events">Events</a>
             <a href="#team">Team</a>
+            <a href="#support">Support Us</a>
             <a href="#contact">Contact Us</a>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <img src="ReadLink (1).png" alt="ReadLink Project Logo" class="hero-logo" onerror="this.style.display='none'">
         <h1>Connecting Communities Through the <span>Joy of Reading</span></h1>
@@ -435,7 +505,6 @@
         <a href="#contact" class="btn">Get Involved</a>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about">
         <div class="about-container">
             <div class="about-text">
@@ -443,7 +512,7 @@
                 <p>Every child deserves the chance to discover the worlds hidden inside books. However, barriers to literacy still impact countless neighborhoods, leaving brilliant children behind before they even get a fair start.</p>
                 
                 <div class="quote-block">
-                    <p><strong>A Note From Our Founder:</strong> "While volunteering at an elementary school robotics class, we handed out name tags to get to know the children. When I showed one student their tag to double-check their name, they looked up at me and softly said, <em>'I can't read.'</em></p>
+                    <p><strong>A Note From Our Founder:</strong> "While volunteering at an elementary school robotics class, we handed out name tags to get to know the children. When I showed one student their tag to double-check my spelling, they looked up at me and softly said, <em>'I can't read.'</em></p>
                     <p style="margin-top: 0.5rem;">I was deeply shocked that a child thriving in a hands-on STEM setting couldn't read their own name. Literacy is a crucial foundation for all learning and life. That moment made it clear that I couldn't just stand by. I had to step up and build a solution."</p>
                 </div>
 
@@ -456,7 +525,6 @@
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
     <section id="aims" style="background-color: rgba(242, 236, 225, 0.3);">
         <h2>What We Aim To Do</h2>
         <div class="grid-container">
@@ -475,7 +543,6 @@
         </div>
     </section>
 
-    <!-- UPCOMING EVENTS SECTION -->
     <section id="events">
         <h2>Upcoming Events</h2>
         <p style="text-align: center; max-width: 600px; margin: -1rem auto 2rem auto; color: #515457; font-weight: 600;">
@@ -483,7 +550,6 @@
         </p>
         
         <div class="events-container">
-            <!-- Event 1 -->
             <div class="event-card">
                 <div class="event-date">
                     <span class="day">15</span>
@@ -496,7 +562,6 @@
                 </div>
             </div>
 
-            <!-- Event 2 -->
             <div class="event-card">
                 <div class="event-date">
                     <span class="day">02</span>
@@ -511,7 +576,6 @@
         </div>
     </section>
 
-    <!-- OUR TEAM SECTION -->
     <section id="team" style="background-color: rgba(242, 236, 225, 0.3);">
         <h2>Our Team</h2>
         <p style="text-align: center; max-width: 500px; margin: -1rem auto 2rem auto; color: #515457; font-weight: 600;">
@@ -519,32 +583,22 @@
         </p>
         
         <div class="team-grid">
-            <!-- Founder Profile -->
             <div class="team-member">
-                <div class="avatar-placeholder">
-                    <!-- Tip: You can replace this text with an image link later, like <img src="founder.jpg"> -->
-                    📖
-                </div>
+                <div class="avatar-placeholder">📖</div>
                 <h3>Eunice Sim</h3>
                 <div class="role">Founder & Executive Director</div>
                 <p>Dedicated to bridging technical mentorship and fundamental literacy skills for children in underrepresented communities.</p>
             </div>
 
-            <!-- Team Member 2 -->
             <div class="team-member">
-                <div class="avatar-placeholder">
-                    🎨
-                </div>
-                <h3>Ina Dufault </h3>
+                <div class="avatar-placeholder">🎨</div>
+                <h3>Ina Dufault</h3>
                 <div class="role">Creative Director</div>
                 <p>Oversees design, visual resource building, and helping turn educational lessons into vibrant, interactive assets.</p>
             </div>
 
-            <!-- Team Member 3 -->
             <div class="team-member">
-                <div class="avatar-placeholder">
-                    🤝
-                </div>
+                <div class="avatar-placeholder">🤝</div>
                 <h3>Team Member 3</h3>
                 <div class="role">Outreach Coordinator</div>
                 <p>Coordinates with elementary schools and community centers to safely distribute books and set up free learning clinics.</p>
@@ -552,33 +606,63 @@
         </div>
     </section>
 
-    <!-- CONTACT US -->
-    <section id="contact">
+    <section id="support">
+        <h2>Support Our Mission</h2>
+        <p style="text-align: center; max-width: 600px; margin: -1rem auto 3rem auto; color: #515457; font-weight: 600;">
+            There are many ways to make an impact. Help us keep our programs completely free for children.
+        </p>
+
+        <div class="support-container">
+            <div class="support-box">
+                <div>
+                    <h3>Monetary Donations</h3>
+                    <p>Your financial contributions go directly toward printing custom learning curriculum, funding workshop spaces, purchasing books, and managing programmatic overhead.</p>
+                </div>
+                <a href="https://readlinkproject.github.io/readlink-project/" target="_blank" class="btn" style="background-color: var(--logo-blue); box-shadow: 0 4px 0px #3884a6;">Donate Funds</a>
+            </div>
+
+            <div class="support-box">
+                <div>
+                    <h3>Donate Supplies</h3>
+                    <p>We eagerly accept free physical items that actively help us teach kids, including elementary school level books, workbooks, and basic stationery supplies (pencils, markers, notebooks).</p>
+                </div>
+                <p style="margin-bottom: 0; font-size: 1rem;">To coordinate item drop-offs or direct shipping, please reach out to:<br>
+                   <a href="mailto:readlinkproject@gmail.com" class="email-link">readlinkproject@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: rgba(242, 236, 225, 0.3);">
         <h2>Contact Us</h2>
         <p style="text-align: center; max-width: 500px; margin: -1rem auto 3rem auto; color: #515457; font-weight: 600;">
             Want to collaborate, volunteer, or bring ReadLink to your neighborhood? Let’s connect!
         </p>
         <div class="contact-container">
-            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for reaching out to the ReadLink Project!');">
+            <form action="https://formspree.io/f/xojbzwza" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" required placeholder="Your Name">
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" required placeholder="name@example.com">
+                    <input type="email" id="email" name="email" required placeholder="name@example.com">
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" rows="5" required placeholder="Tell us how you'd like to get involved!"></textarea>
+                    <textarea id="message" name="message" rows="5" required placeholder="Tell us how you'd like to get involved!"></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/readlinkproject/" target="_blank" class="instagram-icon" title="Follow ReadLink on Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
         <p>&copy; 2026 ReadLink Project. Shifting the future, one page at a time.</p>
     </footer>
 
